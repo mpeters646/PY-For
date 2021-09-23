@@ -19,22 +19,14 @@ def shortest_names(countries):
 
 
 def most_vowels(countries):
-  most_vowel_list = []
-  max_length = 0
-  for country in countries:
-      vowel_length = len([el for el in country.lower() if el in ['a', 'e', 'i', 'o', 'u']])
+  most_vowel_list = sorted(countries, key=lambda x: sum(1 for y in x if y in 'aeiouAEIOU'), reverse=True)
 
-      # print(vowel_length, country)
-
-      if vowel_length > max_length:
-          max_length = vowel_length
-          most_vowel_list.append(country)
-
-  most_vowel_list.reverse()
   print(most_vowel_list[0:3])
   return most_vowel_list[0:3]
 
 def alphabet_set(countries):
+  alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+  
   for c in countries:
     return c
 
@@ -46,11 +38,10 @@ if __name__ == '__main__':
     """ Write the calls to your functions here. """
     shortest_names(countries)
     most_vowels(countries)
-    # alphabet_set(countries)
+    alphabet_set(countries)
 
 
 """ TEST CODE """
-
 
 
 
